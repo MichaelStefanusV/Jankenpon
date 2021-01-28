@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock!Paper!!Scissor!!!</title>
+        <link rel="stylesheet" href="style/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="style/style.css" type="text/css" media="all">
+        <script src="janken.js"></script>
+        <script src="https://kit.fontawesome.com/945fd49caf.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="flex">
+                <div>ROCK!! PAPER!! SCISSOR!!</div>
+            </header>
+            <main class="main-content">
+                <div class="victory-defeat">
+                    <p id="victory-defeat-tie">Victory</p>
+                </div>
+                <div class="players-status">    
+                    <div class="web-user-score-board flex">
+                        <p>Player : </p>
+                        <p id="web-user-score">0</p>
+                    </div>  
+                    <div class="npc-score-board flex">
+                        <p>Computer : </p>
+                        <p id="npc-score">0</p>
+                    </div>
+                </div>
+                <div class="choose-weapon flex">
+                    <div class="button">
+                        <input id="rock" type="image" src="assets/rock.png"  alt="rock-button">
+                    </div>
+                    <div class="button">
+                        <input id="paper" type="image" src="assets/paper.png"  alt="paper-button">
+                    </div>
+                    <div class="button">
+                        <input id="scissor" type="image" src="assets/scissors.png" alt="scissor-button">
+                    </div>
+                </div>
+            </main>
+            <footer class="flex">
+                <a href="https://github.com/MichaelStefanusV" id="githubAdd"><i class="fab fa-github" style="font-size: xx-large;"></i></a>
+            </footer>
+        </div>
+    </body>
+</html>

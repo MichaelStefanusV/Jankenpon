@@ -1,0 +1,106 @@
+body{
+  font-family: arial,sans-serif;
+}
+
+.container{
+  height: 100vh;
+  width:auto;
+  display:grid;
+  grid-template-columns:repeat(13,1fr); 
+  grid-template-rows:repeat(14,1fr);
+}
+
+.flex{
+  display:flex;
+}
+
+header{
+  height:100%;
+  width:auto;
+  background-color:navy;
+  color:yellow;
+  justify-content:center;
+  align-content:center;
+  padding-top:1vh;
+  font-size: 2em;
+  grid-area:1/1/2/14;
+}
+
+body .container .main-content{
+  height:100%;
+  width:auto;
+  background-color:yellow;
+  grid-area:2/1/14/14;
+  display:grid;
+  grid-template-columns: repeat(10,1fr);
+  grid-template-rows:repeat(14,1fr);
+}
+
+body .main-content .victory-defeat{
+  grid-area:1/1/2/15;
+  color:darkorange;
+  font-size: 50px;
+  justify-self: center;
+}
+
+body .main-content .players-status{
+  grid-area:3/1/6/15;
+  display:grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:3em;
+}
+
+body .main-content .players-status .web-user-score-board{
+  justify-content: end;
+  font-size:1.5em;
+  color:green;
+  
+}
+
+body .main-content .players-status .npc-score-board{
+  color:red;
+  font-size:1.5em;
+}
+
+body .main-content .choose-weapon{
+  grid-area: 7/1/11/15;
+  grid-gap:5vh;
+  justify-content: center;
+}
+
+body .main-content .choose-weapon .button{
+  border-radius: 10px;
+  background-color:orange;
+  border-style:solid;
+  border-color:blue;
+  border-width: 1vh;
+  width:16vh;
+  height: 16vh;
+}
+
+body .main-content .choose-weapon .button:hover{
+  background-color:darkorange;
+  border-width:1.2vh;
+}
+
+body .main-content .choose-weapon .button input{
+  height: 100%;
+  width:auto;
+}
+
+footer{
+  height:100%;
+  width:auto;
+  background-color: navy;
+  grid-area:14/1/16/14;
+}
+
+footer #githubAdd{
+  align-self: center;
+  margin-left: 1em;
+}
+
+footer .fa-github{
+  color:yellow;
+}
