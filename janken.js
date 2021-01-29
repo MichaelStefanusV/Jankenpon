@@ -1,54 +1,118 @@
-function computerPlay(){
-    let result = Math.random()*100%3;
-    return result;
+const buttons = document.querySelectorAll('.button');
+
+
+
+function resetAll(){
+    let player = document.getElementById('web-user-score');  
+    let comp = document.getElementById('npc-score');
+    let victor= document.getElementById('victory-defeat-tie');
+    player.innerHTML=0;
+    comp.innerHTML=0;
+    victor.innerHTML=``;
 }
 
-let countPC=0;
-let countUser=0;
+function winChecker(){
+    let player = document.getElementById('web-user-score');  
+    let comp = document.getElementById('npc-score');
+    let playerScore=+(player.innerHTML);
+    let compScore=+(comp.innerHTML);
+    if(playerScore===5||compScore===5){
+        if(playerScore>compScore){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
 
-function playRound(){
-    let playerSelection=this;
-    let computerSelection=computerPlay();
-    if(playerSelection===computerSelection){
-        document.getElementById("victory-defeat-tie").innerHTML="TIE";
+function removeTransition(e){
+    console.log(e);
+    if(e.propertyName!=='transform'){
+        return;
     }else{
-        if(playerSelection===0){
-            if(computerSelection===1){
-                document.getElementById("victory-defeat-tie").innerHTML="VICTORY";
-                countUser++;
-                document.getElementById("web-user-score").innerHTML=countUser;
+        e.target.classList.remove('klik');
+    }
+}
+
+function pcGenerate(gen){
+    if(gen===0){
+        return 'rock';
+    }else if(gen===1){
+        return 'paper';
+    }else{
+        return 'scissor';
+    }
+}
+
+
+function winLoseTie(user,pc){
+    let victor= document.getElementById('victory-defeat-tie')
+    let player = document.getElementById('web-user-score');  
+    let comp = document.getElementById('npc-score');
+    let playerScore=+(player.innerHTML);
+    let compScore=+(comp.innerHTML);
+    
+    if(pc===user){
+        victor.innerHTML='TIE';
+    }else{
+        if(user==='rock'){
+            if(pc === 'paper'){
+                compScore++;
+                comp.innerHTML=compScore;
+                victor.innerHTML='YOU LOSE';
+                false;
             }else{
-                document.getElementById("victory-defeat-tie").innerHTML="DEFEAT";
-                countPC++;
-                document.getElementById("npc-score").innerHTML=countUser;
+                playerScore++;
+                player.innerHTML=playerScore;
+                victor.innerHTML='YOU WIN';
+                return true;
             }
-        }
-        else if(playerSelection===1){
-            if(computerSelection===2){
-                document.getElementById("victory-defeat-tie").innerHTML="VICTORY";
-                countUser++;
-                document.getElementById("web-user-score").innerHTML=countUser;
+        }else if(user==='paper'){
+            if(pc === 'rock'){
+                playerScore++;
+                player.innerHTML=playerScore;
+                victor.innerHTML='YOU WIN';
+                return true;
             }else{
-                document.getElementById("victory-defeat-tie").innerHTML="DEFEAT";
-                countPC++;
-                document.getElementById("npc-score").innerHTML=countUser;
+                compScore++;
+                comp.innerHTML=compScore;
+                victor.innerHTML='YOU LOSE';
+                return false;
             }
-        }
-        else{
-            if(computerSelection===0){
-                document.getElementById("victory-defeat-tie").innerHTML="VICTORY";
-                countUser++;
-                document.getElementById("web-user-score").innerHTML=countUser;
+        }else {
+            if(pc === 'paper'){ 
+                playerScore++;
+                player.innerHTML=playerScore;
+                victor.innerHTML='YOU WIN';
+                return true;
             }else{
-                document.getElementById("victory-defeat-tie").innerHTML="DEFEAT";
-                countPC++;
-                document.getElementById("npc-score").innerHTML=countUser;
+                compScore++;
+                comp.innerHTML=compScore;
+                victor.innerHTML='YOU LOSE';
+                return false;
             }
         }
     }
 }
 
-document.getElementById("paper").addEventListener("click",playRound);
-document.getElementById("rock").addEventListener("click",playRound);
-document.getElementById("scissor").addEventListener("click",playRound);
+buttons.forEach(button => {
+    button.addEventListener('click',function(e){
+        let id=button.getAttribute('id');
+        button.classList.add('klik');
+        console.log(id);
+        let gen = Math.floor(Math.random() * Math.floor(3));
+        winLoseTie(id,pcGenerate(gen));
+        let winner = winChecker();
+        if(winner===true){
+            alert(`VICTORY`);
+            resetAll();
+        }else if(winner===false){
+            alert('DEFEAT');
+            resetAll();
+        }
+    });
+});
 
+buttons.forEach(button=>{
+    button.addEventListener('transitionend',removeTransition);
+});

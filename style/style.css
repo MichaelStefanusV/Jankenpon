@@ -77,6 +77,7 @@ body .main-content .choose-weapon .button{
   border-width: 1vh;
   width:16vh;
   height: 16vh;
+  transition: all .07s ease;
 }
 
 body .main-content .choose-weapon .button:hover{
@@ -103,4 +104,8 @@ footer #githubAdd{
 
 footer .fa-github{
   color:yellow;
+}
+
+.klik{
+  transform:scale(1.1);
 }

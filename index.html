@@ -4,7 +4,7 @@
         <title>Rock!Paper!!Scissor!!!</title>
         <link rel="stylesheet" href="style/reset.css" type="text/css" media="all">
         <link rel="stylesheet" href="style/style.css" type="text/css" media="all">
-        <script src="janken.js"></script>
+        
         <script src="https://kit.fontawesome.com/945fd49caf.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -14,7 +14,7 @@
             </header>
             <main class="main-content">
                 <div class="victory-defeat">
-                    <p id="victory-defeat-tie">Victory</p>
+                    <p id="victory-defeat-tie"></p>
                 </div>
                 <div class="players-status">    
                     <div class="web-user-score-board flex">
@@ -27,14 +27,14 @@
                     </div>
                 </div>
                 <div class="choose-weapon flex">
-                    <div class="button">
-                        <input id="rock" type="image" src="assets/rock.png"  alt="rock-button">
+                    <div class="button" id="rock">
+                        <input  type="image" src="assets/rock.png"  alt="rock-button">
                     </div>
-                    <div class="button">
-                        <input id="paper" type="image" src="assets/paper.png"  alt="paper-button">
+                    <div class="button" id="paper">
+                        <input  type="image" src="assets/paper.png"  alt="paper-button">
                     </div>
-                    <div class="button">
-                        <input id="scissor" type="image" src="assets/scissors.png" alt="scissor-button">
+                    <div class="button" id="scissor">
+                        <input  type="image" src="assets/scissors.png" alt="scissor-button">
                     </div>
                 </div>
             </main>
@@ -43,4 +43,5 @@
             </footer>
         </div>
     </body>
+    <script src="janken.js"></script>   
 </html>
